@@ -1,4 +1,4 @@
-import type { ListItem } from "./types";
+import type { ListItem } from "../types/widget.types";
 
 export const generateMockData = (count: number): ListItem[] => {
   return Array.from({ length: count }, (_, index) => ({
