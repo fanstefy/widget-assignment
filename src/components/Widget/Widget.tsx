@@ -42,7 +42,11 @@ export const Widget = () => {
             <Chip
               key={item.id}
               label={item.name}
-              onDelete={() => widgetState.removeSelectedItem(item.id)}
+              onDelete={
+                !widgetState.isOpen
+                  ? () => widgetState.removeSelectedItem(item.id)
+                  : undefined
+              }
               color="primary"
               variant="outlined"
             />
