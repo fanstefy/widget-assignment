@@ -11,7 +11,7 @@ export const useWidgetLogic = (allItems: ListItem[]) => {
   const [tempSelectedItems, setTempSelectedItems] = useState<ListItem[]>([]);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterTreshold, setFilterThreshold] = useState<number | null>(null);
+  const [filterThreshold, setFilterThreshold] = useState<number | null>(null);
 
   // Actions
 
@@ -57,11 +57,11 @@ export const useWidgetLogic = (allItems: ListItem[]) => {
         .includes(searchTerm.toLowerCase());
 
       const matchesFilterThreshold =
-        filterTreshold !== null ? item.id <= filterTreshold : true;
+        filterThreshold !== null ? item.id <= filterThreshold : true;
 
       return matchesSearchTerm && matchesFilterThreshold;
     });
-  }, [allItems, searchTerm, filterTreshold]);
+  }, [allItems, searchTerm, filterThreshold]);
 
   return {
     isOpen,
@@ -69,7 +69,7 @@ export const useWidgetLogic = (allItems: ListItem[]) => {
     tempSelectedItems,
     searchTerm,
     setSearchTerm,
-    filterTreshold,
+    filterThreshold,
     setFilterThreshold,
     filteredElements,
     openModal,
