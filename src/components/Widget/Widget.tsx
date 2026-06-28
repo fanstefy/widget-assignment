@@ -1,14 +1,12 @@
-import { Box, Button, Chip, Typography, Paper } from "@mui/material";
+import { Box, Button, Chip, Typography, Paper, Divider } from "@mui/material";
 import { useWidgetLogic } from "../../hooks/useWidgetLogic";
 import { generateMockData } from "../../utils/mockData";
-import { SelectionModal } from "./SelectionModal";
+import { SelectionSection } from "./SelectionSection";
 
-const MOCK_ITEMS = generateMockData(15000);
+const MOCK_ITEMS = generateMockData(12000);
 
 export const Widget = () => {
   const widgetState = useWidgetLogic(MOCK_ITEMS);
-
-  console.log("widgetState: ", widgetState);
 
   return (
     <Paper
@@ -52,16 +50,23 @@ export const Widget = () => {
         )}
       </Box>
 
-      <Button
-        variant="contained"
-        disableElevation
-        onClick={widgetState.openModal}
-        sx={{ textTransform: "none", fontWeight: "bold" }}
-      >
-        Change my choice
-      </Button>
+      {!widgetState.isOpen && (
+        <Button
+          variant="contained"
+          disableElevation
+          onClick={widgetState.openModal}
+          sx={{ textTransform: "none", fontWeight: "bold" }}
+        >
+          Change my choice
+        </Button>
+      )}
 
-      <SelectionModal state={widgetState} />
+      {widgetState.isOpen && (
+        <>
+          <Divider sx={{ my: 2 }} />
+          <SelectionSection state={widgetState} />
+        </>
+      )}
     </Paper>
   );
 };

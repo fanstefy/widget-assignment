@@ -12,7 +12,6 @@ function App() {
         padding: "20px",
       }}
     >
-      {" "}
       <Widget />
     </div>
   );

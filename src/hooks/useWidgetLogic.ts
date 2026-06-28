@@ -48,6 +48,11 @@ export const useWidgetLogic = (allItems: ListItem[]) => {
     setSelectedItems((prev) =>
       prev.filter((selectedItem) => selectedItem.id !== id),
     );
+    if (isOpen) {
+      setTempSelectedItems((prev) =>
+        prev.filter((selectedItem) => selectedItem.id !== id),
+      );
+    }
   };
 
   const filteredElements = useMemo(() => {
@@ -57,7 +62,7 @@ export const useWidgetLogic = (allItems: ListItem[]) => {
         .includes(searchTerm.toLowerCase());
 
       const matchesFilterThreshold =
-        filterThreshold !== null ? item.id <= filterThreshold : true;
+        filterThreshold !== null ? item.id >= filterThreshold : true;
 
       return matchesSearchTerm && matchesFilterThreshold;
     });
