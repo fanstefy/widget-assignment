@@ -65,6 +65,7 @@ export const Widget = () => {
         </Button>
       )}
 
+      {/* Selection section */}
       {widgetState.isOpen && (
         <>
           <Divider sx={{ my: 2 }} />

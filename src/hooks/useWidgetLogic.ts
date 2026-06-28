@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import type { ListItem } from "../types/widget.types";
+import { useDebounce } from "./useDebounce";
 
 export const useWidgetLogic = (allItems: ListItem[]) => {
   // State
@@ -12,6 +13,8 @@ export const useWidgetLogic = (allItems: ListItem[]) => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filterThreshold, setFilterThreshold] = useState<number | null>(null);
+
+  const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
   // Actions
 
@@ -54,14 +57,14 @@ export const useWidgetLogic = (allItems: ListItem[]) => {
     return allItems.filter((item) => {
       const matchesSearchTerm = item.name
         .toLowerCase()
-        .includes(searchTerm.toLowerCase());
+        .includes(debouncedSearchTerm.toLowerCase());
 
       const matchesFilterThreshold =
         filterThreshold !== null ? item.id > filterThreshold : true;
 
       return matchesSearchTerm && matchesFilterThreshold;
     });
-  }, [allItems, searchTerm, filterThreshold]);
+  }, [allItems, debouncedSearchTerm, filterThreshold]);
 
   return {
     isOpen,
