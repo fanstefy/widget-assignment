@@ -2,6 +2,8 @@
 
 A highly optimized React widget built with Vite, TypeScript, and Material-UI. It utilizes `react-window` for UI virtualization, includes a custom debounce hook for search performance, and is fully tested.
 
+**[Live Demo](https://widget-assignment-two.vercel.app/)**
+
 ## 🚀 Quick Start
 
 Make sure you have **Node.js** installed, then run:
@@ -33,3 +35,4 @@ npm run lint – Instantly checks the code using Oxlint.
 npm run lint:fix – Automatically fixes safe linting issues.
 
 npm run build – Bundles the app into highly optimized static files for production.
+```
