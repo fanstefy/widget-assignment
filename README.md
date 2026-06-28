@@ -1,33 +1,35 @@
-# React + TypeScript + Vite
+# React Widget App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A highly optimized React widget built with Vite, TypeScript, and Material-UI. It utilizes `react-window` for UI virtualization, includes a custom debounce hook for search performance, and is fully tested.
 
-Currently, two official plugins are available:
+## 🚀 Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Make sure you have **Node.js** installed, then run:
 
-## React Compiler
+```bash
+# Clone the repository
+git clone <PASTE_YOUR_REPO_URL>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Enter the project directory
+cd <YOUR_PROJECT_FOLDER>
 
-## Expanding the Oxlint configuration
+# Install dependencies
+npm install
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+# Start the development server
+npm run dev
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
-# widget-assignment
+The application will be available at http://localhost:5173.
+
+🛠️ Available Scripts
+
+npm run dev – Starts the local development server.
+
+npm run test – Runs the Vitest suite (includes custom hook tests).
+
+npm run lint – Instantly checks the code using Oxlint.
+
+npm run lint:fix – Automatically fixes safe linting issues.
+
+npm run build – Bundles the app into highly optimized static files for production.
